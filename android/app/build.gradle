@@ -1,3 +1,4 @@
+
 plugins {
     id "com.android.application"
     // START: FlutterFire Configuration
@@ -7,6 +8,9 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
+
+apply plugin: 'com.android.application'
+
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file("local.properties")
@@ -55,6 +59,14 @@ android {
         }
     }
 }
+
+dependencies {
+    // Add the dependency for the Firebase SDK
+    implementation 'com.google.firebase:firebase-auth:23.0.0' // Check for the latest version
+    implementation 'com.google.android.gms:play-services-auth:21.2.0' // Check for the latest version
+}
+
+apply plugin: 'com.google.gms.google-services'
 
 flutter {
     source = "../.."
